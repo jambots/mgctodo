@@ -1,16 +1,16 @@
-<div class="card border-primary" style="width: 50%"> 
+<div class="card border-primary" style="width: 50%">
     <div class="card-header">
     <div class="row">
         <div class="col-sm">
-            Due By:  
+            *** Due By:
             <%if (task.dueDate != '') { %>
-                <%=task.dueDate%> 
+                <%=task.dueDate%>
             <% } else  { %>
                 Not specified
             <% } %>
         </div>
         <div class="col-sm">
-            <% switch(task.priority) { 
+            <% switch(task.priority) {
                 case 'Normal': %>
                 <span class="badge float-right badge-warning">Priority: Normal</span>
                 <% break; %>
@@ -52,7 +52,7 @@
                         <form method="post" action="/task/complete/<%=task._id%>">
                             <button type="submit" class="btn btn-link">
                                 <% if (task.isComplete == 'false') {%>
-                                    <i class="fas fa-check"></i> 
+                                    <i class="fas fa-check"></i>
                                 <%} else { %>
                                     <i class="fas fa-redo-alt"></i>
                                 <%}%>
@@ -60,7 +60,7 @@
                         </form>
                     </li>
                 </ul>
-            </div>  
+            </div>
         </div>
     </div>
 </div>
