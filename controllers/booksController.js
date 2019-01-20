@@ -5,6 +5,19 @@ const debug = require('debug')('app:booksController');
 
 
 exports.showBooks = async function (req, res) {
+  res.json([
+            {
+                id: 1,
+                title: "Alice's Adventures in Wonderland",
+                author: "Charles Lutwidge Dodgson"
+            },
+            {
+                id: 2,
+                title: Einstein's Dreams",
+                author: "Alan Lightman"
+            }
+        ])
+/*
   try {
     const dbParams = await util.setupDB();
     const tasks = await dbParams.collection.find({}).sort({ dueDate: 1 }).toArray();
@@ -16,4 +29,5 @@ exports.showBooks = async function (req, res) {
   catch (err) {
     debug(err);
   }
+*/
 }
