@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 
 const booksController = require('../controllers/booksController');
+const apiaddController = require('../controllers/apiaddController');
 
 /*
 const showController = require('../controllers/showController');
@@ -20,5 +21,6 @@ router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
 */
 router.get('/api/books', booksController.showBooks);
+router.get('/api/apiadd', apiaddController.addApi);
 
 module.exports = router;
