@@ -22,5 +22,6 @@ router.get('/', showController.showTasks);
 */
 router.get('/api/books/', booksController.showBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
+router.post('/api/apiadd/', apiaddController.saveApi);
 
 module.exports = router;

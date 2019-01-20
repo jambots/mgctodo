@@ -6,13 +6,13 @@ exports.addApi = (req, res) => {
   res.render('addTask', { title: 'Adding API' });
 };
 
-exports.saveTask = async (req, res) => {
+exports.saveApi = async (req, res) => {
   try {
     const task = req.body;
     const dbParams = await util.setupDB();
     await dbParams.collection.insertOne(task);
     dbParams.client.close();
-    res.redirect('/');
+    res.redirect('/api/books/');
   }
 
   catch(err) {

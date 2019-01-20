@@ -45,6 +45,7 @@ app.post('/task/add/', todoRouter);
 app.get('/task/api/', todoRouter);
 app.get('/api/books/', apiRouter);
 app.post('/api/apiadd/', apiRouter);
+app.get('/api/apiadd/', apiRouter);
 
 
 // catch favicon requests and respond
