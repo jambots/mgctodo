@@ -6,6 +6,7 @@ var morgan = require('morgan');
 var debug = require('debug')('app');
 
 const todoRouter = require('./routes/todoRoutes');
+const apiRouter = require('./routes/apiRoutes');
 
 var app = express();
 
