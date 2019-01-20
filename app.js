@@ -6,7 +6,8 @@ var morgan = require('morgan');
 var debug = require('debug')('app');
 
 const todoRouter = require('./routes/todoRoutes');
-import bookRouter from './Routes/bookRouter';
+const bookRouter = require('./routes/bookRouter');
+//import bookRouter from './Routes/bookRouter';
 
 var app = express();
 
