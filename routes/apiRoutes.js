@@ -3,6 +3,7 @@ let router = express.Router();
 
 const booksController = require('../controllers/booksController');
 const apiaddController = require('../controllers/apiaddController');
+const deleteController = require('../controllers/apideleteController');
 
 /*
 const showController = require('../controllers/showController');
@@ -23,5 +24,6 @@ router.get('/', showController.showTasks);
 router.get('/api/books/', booksController.showBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
 router.post('/api/apiadd/', apiaddController.saveApi);
+router.post('/api/apidelete/:id', apideleteController.confirmDelete);
 
 module.exports = router;

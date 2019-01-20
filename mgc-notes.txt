@@ -2,6 +2,7 @@ lightsail mean stack
 
 cd to dev/hub/
 ssh -i default.pem bitnami@54.202.200.128
+ssh -i default.pem bitnami@52.27.185.113
 
 
 [use public ip]
@@ -80,6 +81,7 @@ DB_URL=mongodb://tasks:tasks@localhost:27017/?authMechanism=SCRAM-SHA-1&authSour
 :wq!
 
 sudo node ./bin/www
+to run 
 
 crud uses:
 lightsail sudo npm run start
