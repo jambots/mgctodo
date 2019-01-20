@@ -20,7 +20,7 @@ router.get('/task/add/', addController.addTask);
 router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
 */
-router.get('/api/books', booksController.showBooks);
-router.get('/api/apiadd', apiaddController.addApi);
+router.get('/api/books/', booksController.showBooks);
+router.get('/api/apiadd/', apiaddController.addApi);
 
 module.exports = router;
