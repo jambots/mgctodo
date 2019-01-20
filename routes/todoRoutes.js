@@ -16,6 +16,6 @@ router.post('/task/edit/:id', editController.commitEdit);
 router.get('/task/add/', addController.addTask);
 router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
-router.get('/api/', showController.showApiTasks);
+router.get('/task/api/', showApiController.showApiTasks);
 
 module.exports = router;
