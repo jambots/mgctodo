@@ -3,7 +3,7 @@ let router = express.Router();
 
 const booksController = require('../controllers/booksController');
 const apiaddController = require('../controllers/apiaddController');
-const deleteController = require('../controllers/apideleteController');
+const apideleteController = require('../controllers/apideleteController');
 
 /*
 const showController = require('../controllers/showController');
