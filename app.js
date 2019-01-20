@@ -36,21 +36,8 @@ app.get('/task/complete/:id', todoRouter);
 app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
 app.get('/task/api/', todoRouter);
+app.get('api/books', todoRouter);
 
-app.get('/api/books', (req, res) => {
-    res.json([
-            {
-                id: 1,
-                title: "Alice's Adventures in Wonderland",
-                author: "Charles Lutwidge Dodgson"
-            },
-            {
-                id: 2,
-                title: "Einstein's Dreams",
-                author: "Alan Lightman"
-            }
-        ])
-})
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));
