@@ -3,7 +3,6 @@ const { MongoClient } = require('mongodb');
 const os = require("os");
 const debug = require('debug')('app:showApiController');
 
-
 exports.showApiTasks = async function (req, res) {
   try {
     const dbParams = await util.setupDB();
