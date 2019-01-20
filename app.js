@@ -46,7 +46,7 @@ app.get('/api/books', (req, res) => {
             },
             {
                 id: 2,
-                title: Einstein's Dreams",
+                title: "Einstein's Dreams",
                 author: "Alan Lightman"
             }
         ])
