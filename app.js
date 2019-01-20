@@ -6,6 +6,7 @@ var morgan = require('morgan');
 var debug = require('debug')('app');
 
 const todoRouter = require('./routes/todoRoutes');
+import bookRouter from './Routes/bookRouter';
 
 var app = express();
 
@@ -37,20 +38,7 @@ app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
 app.get('/task/api/', todoRouter);
 
-app.get('/api/books', (req, res) => {
-    res.json([
-            {
-                id: 1,
-                title: "Alice's Adventures in Wonderland",
-                author: "Charles Lutwidge Dodgson"
-            },
-            {
-                id: 2,
-                title: "Einstein's Dreams",
-                author: "Alan Lightman"
-            }
-        ])
-})
+app.use('/api/Books', bookRouter);
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));

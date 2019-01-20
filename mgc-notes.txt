@@ -88,6 +88,10 @@ to stop node
 ctrl-c
 sudo pkill node
 
+
+http://54.202.200.128/api/books
+https://dev.to/aurelkurtula/building-a-restful-api-with-express-and-mongodb--3mmh
+
 ********************** experimental
 
 https://github.com/jambots/crud.git
