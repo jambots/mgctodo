@@ -1,0 +1,93 @@
+lightsail mean stack
+
+cd to dev/hub/
+ssh -i default.pem bitnami@54.202.200.128
+
+
+[use public ip]
+cd ~
+cat bitnami_application_password
+
+BoveXoiyshd6
+
+vi /opt/bitnami/apache2/conf/httpd.conf
+*i [insert mode]
+change Listen 80 to Listen 8080
+[esc]
+:wq!
+
+vi /opt/bitnami/apache2/conf/bitnami/bitnami.conf
+*i [insert mode]
+change  80 to  8080 in two places
+[esc]
+:wq!
+
+sudo /opt/bitnami/ctlscript.sh restart apache
+
+lightsail > instance > networking add custom tcp 8080
+
+
+mongo admin --username root -p BoveXoiyshd6
+[paste in password]
+BoveXoiyshd6
+> show dbs
+
+> use tasks 
+[creates database]
+
+paste in:
+
+db.createUser(
+...    {
+...      user: "tasks",
+...      pwd: "tasks",
+...      roles: [ "dbOwner" ]
+...    }
+...  )
+
+
+
+> show users
+
+> exit
+
+-------- optional rockMongo
+in new console
+[tunnel]
+$ ssh -N -L 8888:127.0.0.1:8080 -i default.pem bitnami@54.202.200.128
+
+
+[will hold console]
+cLLggFEF4lhg
+browse to
+127.0.0.1:8888/rockmongo
+user root
+password 
+BoveXoiyshd6
+-------
+
+in bitnami console at ~
+git clone https://github.com/mikegcoleman/todo.git
+git clone https://github.com/jambots/mgctodo.git
+$ cd todo
+
+npm install --production
+vi .env
+*i 
+type in:
+PORT=80
+DB_URL=mongodb://tasks:tasks@localhost:27017/?authMechanism=SCRAM-SHA-1&authSource=tasks
+:wq!
+
+sudo node ./bin/www
+
+crud uses:
+lightsail sudo npm run start
+
+to stop node
+ctrl-c
+sudo pkill node
+
+********************** experimental
+
+https://github.com/jambots/crud.git

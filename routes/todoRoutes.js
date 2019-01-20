@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 
 const showController = require('../controllers/showController');
+const showApiController = require('../controllers/showApiController');
 const addController = require('../controllers/addcontroller');
 const editController = require('../controllers/editController');
 const deleteController = require('../controllers/deletecontroller');
@@ -15,5 +16,6 @@ router.post('/task/edit/:id', editController.commitEdit);
 router.get('/task/add/', addController.addTask);
 router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
+router.get('/api/', showController.showApiTasks);
 
 module.exports = router;
