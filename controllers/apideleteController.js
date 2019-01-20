@@ -1,6 +1,6 @@
 const { ObjectId } = require('mongodb');
 const util = require('./utilController');
-const debug = require('debug')('app:deleteController');
+const debug = require('debug')('app:apideleteController');
 
 
 exports.confirmDelete = async (req, res) => {
