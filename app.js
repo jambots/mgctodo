@@ -24,7 +24,7 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.use('/css', express.static(__dirname + '/public/stylesheets'));
-app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/')); 
+app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/'));
 
 app.get('/', todoRouter);
 app.post('/task/complete/:id', todoRouter);
@@ -35,6 +35,7 @@ app.post('/task/delete/:id', todoRouter);
 app.get('/task/complete/:id', todoRouter);
 app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
+app.get('/task/api/', todoRouter);
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));
