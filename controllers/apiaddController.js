@@ -12,7 +12,7 @@ exports.saveApi = async (req, res) => {
     const dbParams = await util.setupDB();
     const tasks = await dbParams.collection.find({ siteUrl: task.siteUrl }).sort({ dueDate: 1 }).toArray();
     if(tasks.length>0){
-      await dbParams.collection.findOneAndUpdate({ siteUrl: task.siteUrl }, { $set: { isComplete: 'false' } });
+      await dbParams.collection.findOneAndUpdate({ siteUrl: task.siteUrl }, { $set: { isUnsyndicated: 'false' } });
     }
     else{
       await dbParams.collection.insertOne(task);
