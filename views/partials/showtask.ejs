@@ -38,12 +38,12 @@
               <%}%>
           </div>
           <div class = "col-sm">
-              <% if (task.isUnsyndicated == 'false') {%>
-                  <h4><span class="badge badge-secondary">Syndicated</span>
+            <h4><span class="badge badge-secondary">
+                <% if (task.isUnsyndicated == 'false') {%>
+                  Syndicated
               <%} else { %>
-                  <h4><span class="badge badge-secondary">Unsyndicated</span>
+                  Unsyndicated
               <%}%>
-              <li class="nav-item">
                   <form method="post" action="/task/syndication/<%=task._id%>">
                       <button type="submit" class="btn btn-link">
                           <% if (task.isUnsyndicated == 'false') {%>
@@ -53,7 +53,7 @@
                           <%}%>
                       </button>
                   </form>
-              </li>
+              </span>
             </h4>
           </div>
             <div class = "col-sm">
