@@ -8,15 +8,14 @@ exports.addApi = (req, res) => {
 
 exports.saveApi = async (req, res) => {
   try {////
-    const { id } = req.params;
+    const task = req.body;
     const dbParams = await util.setupDB();
-    const tasks = await dbParams.collection.find({ _id: new ObjectId(id) }).sort({ dueDate: 1 }).toArray();
+    const tasks = await dbParams.collection.find({ summary: task.summary }).sort({ dueDate: 1 }).toArray();
     if(tasks.length>0){
-      await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isComplete: status } });
+      await dbParams.collection.findOneAndUpdate({ summary: task.summary }, { $set: { isComplete: status } });
     }
     else{
-      const task = req.body;
-      await dbParams.collection.insertOne(task);      
+      await dbParams.collection.insertOne(task);
     }
     dbParams.client.close();
     res.redirect('/api/books');
