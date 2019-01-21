@@ -12,7 +12,7 @@ exports.saveApi = async (req, res) => {
     const dbParams = await util.setupDB();
     const tasks = await dbParams.collection.find({ summary: task.summary }).sort({ dueDate: 1 }).toArray();
     if(tasks.length>0){
-      await dbParams.collection.findOneAndUpdate({ summary: task.summary }, { $set: { isComplete: status } });
+      await dbParams.collection.findOneAndUpdate({ summary: task.summary }, { $set: { isComplete: 'false' } });
     }
     else{
       await dbParams.collection.insertOne(task);
