@@ -75,6 +75,25 @@
               </span>
             </h4>
           </div>
+          <div class = "col-sm">
+            <h4><span class="badge">
+                <% if (task.isApproved == 'false') {%>
+                  Pending
+              <%} else { %>
+                  Approved
+              <%}%>
+                  <form method="post" action="/task/approving/<%=task._id%>">
+                      <button type="submit" class="btn btn-link">
+                          <% if (task.isApproved == 'false') {%>
+                              <i class="fas fa-user"></i>
+                          <%} else { %>
+                              <i class="fas fa-user-check"></i>
+                          <%}%>
+                      </button>
+                  </form>
+              </span>
+            </h4>
+          </div>
             <div class = "col-sm">
                 <ul class="nav justify-content-end nav-pills card-header-pills">
                     <% if (task.isComplete == 'false') {%>

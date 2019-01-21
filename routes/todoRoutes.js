@@ -9,6 +9,7 @@ const deleteController = require('../controllers/deleteController');
 const completeController = require('../controllers/completeController');
 const toggleController = require('../controllers/toggleController');
 
+router.post('/task/approving/:id', toggleController.toggleApproving);
 router.post('/task/banning/:id', toggleController.toggleBanning);
 router.post('/task/syndication/:id', toggleController.toggleSyndication);
 router.post('/task/complete/:id', completeController.commitComplete);

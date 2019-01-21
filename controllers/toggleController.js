@@ -26,49 +26,13 @@ exports.toggleSyndication = async (req, res) => {
   }
   catch (err) {debug(err);}
 };
-exports.approve = async (req, res) => {
+exports.toggleApproval = async (req, res) => {
   try {
       const { id } = req.params;
       const dbParams = await util.setupDB();
       const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-      let status = 'true'; //(task.isComplete == 'false') ? 'true' : 'false';
+      let status = (task.isApproved == 'false') ? 'true' : 'false';
       await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isApproved: status } });
-      dbParams.client.close();
-      res.redirect('/');
-  }
-  catch (err) {debug(err);}
-};
-exports.unApprove = async (req, res) => {
-  try {
-      const { id } = req.params;
-      const dbParams = await util.setupDB();
-      const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-      let status = 'false'; //(task.isComplete == 'false') ? 'true' : 'false';
-      await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isApproved: status } });
-      dbParams.client.close();
-      res.redirect('/');
-  }
-  catch (err) {debug(err);}
-};
-exports.ban = async (req, res) => {
-  try {
-      const { id } = req.params;
-      const dbParams = await util.setupDB();
-      const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-      let status = 'true'; //(task.isComplete == 'false') ? 'true' : 'false';
-      await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isBaned: status } });
-      dbParams.client.close();
-      res.redirect('/');
-  }
-  catch (err) {debug(err);}
-};
-exports.unBan = async (req, res) => {
-  try {
-      const { id } = req.params;
-      const dbParams = await util.setupDB();
-      const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-      let status = 'false'; //(task.isComplete == 'false') ? 'true' : 'false';
-      await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isBanned: status } });
       dbParams.client.close();
       res.redirect('/');
   }
