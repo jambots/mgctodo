@@ -10,15 +10,15 @@ exports.saveApi = async (req, res) => {
   try {////
     const task = req.body;
     const dbParams = await util.setupDB();
-    const tasks = await dbParams.collection.find({ summary: task.summary }).sort({ dueDate: 1 }).toArray();
+    const tasks = await dbParams.collection.find({ siteUrl: task.siteUrl }).sort({ dueDate: 1 }).toArray();
     if(tasks.length>0){
-      await dbParams.collection.findOneAndUpdate({ summary: task.summary }, { $set: { isComplete: 'false' } });
+      await dbParams.collection.findOneAndUpdate({ siteUrl: task.siteUrl }, { $set: { isComplete: 'false' } });
     }
     else{
       await dbParams.collection.insertOne(task);
     }
     dbParams.client.close();
-    res.redirect('/api/books');
+    res.redirect('/api/books/');
 // get false isComplete   const tasks = await dbParams.collection.find({isComplete:'false'}).sort({ dueDate: 1 }).toArray();
   }
 
