@@ -38,7 +38,7 @@
               <%}%>
           </div>
           <div class = "col-sm">
-            <h4><span class="badge badge-secondary">
+            <h4><span class="badge">
                 <% if (task.isUnsyndicated == 'false') {%>
                   Syndicated
               <%} else { %>
@@ -50,6 +50,25 @@
                               <i class="fas fa-eye"></i>
                           <%} else { %>
                               <i class="fas fa-eye-slash"></i>
+                          <%}%>
+                      </button>
+                  </form>
+              </span>
+            </h4>
+          </div>
+          <div class = "col-sm">
+            <h4><span class="badge">
+                <% if (task.isBanned == 'false') {%>
+                  Upstanding
+              <%} else { %>
+                  Banned
+              <%}%>
+                  <form method="post" action="/task/banning/<%=task._id%>">
+                      <button type="submit" class="btn btn-link">
+                          <% if (task.isBanned == 'false') {%>
+                              <i class="fas fa-user"></i>
+                          <%} else { %>
+                              <i class="fas fa-user-slash"></i>
                           <%}%>
                       </button>
                   </form>
