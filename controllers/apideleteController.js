@@ -10,9 +10,9 @@ exports.confirmDelete = async (req, res) => {
     const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
     //let status = (task.isComplete == 'false') ? 'true' : 'false';
     let status = 'true';
-    await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isComplete: status } });
+    await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
     dbParams.client.close();
-    res.redirect('/api/books');
+    res.redirect('/api/books/');
 // get false isComplete   const tasks = await dbParams.collection.find({isComplete:'false'}).sort({ dueDate: 1 }).toArray();
 
     /*don't delete
