@@ -5,7 +5,7 @@ let router = express.Router();
 const showController = require('../controllers/showController');
 const addController = require('../controllers/addController');
 const editController = require('../controllers/editController');
-const deleteController = require('../controllers/deletecontroller');
+const deleteController = require('../controllers/deleteController');
 const completeController = require('../controllers/completeController');
 
 router.post('/task/complete/:id', completeController.commitComplete);
