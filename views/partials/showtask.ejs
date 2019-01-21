@@ -1,4 +1,4 @@
-<div class="card border-primary" style="width: 50%">
+<div class="card border-primary" style="width: 100%">
     <div class="card-header">
     <div class="row">
         <div class="col-sm">
@@ -39,9 +39,9 @@
           </div>
           <div class = "col-sm">
               <% if (task.isUnsyndicated == 'false') {%>
-                  <h4><span class="badge badge-secondary">Syndicated</span></h4>
+                  <h4><span class="badge badge-secondary">Syndicated</span>
               <%} else { %>
-                  <h4><span class="badge badge-secondary">Unsyndicated</span></h4>
+                  <h4><span class="badge badge-secondary">Unsyndicated</span>
               <%}%>
               <li class="nav-item">
                   <form method="post" action="/task/syndication/<%=task._id%>">
@@ -54,6 +54,7 @@
                       </button>
                   </form>
               </li>
+            </h4>
           </div>
             <div class = "col-sm">
                 <ul class="nav justify-content-end nav-pills card-header-pills">
