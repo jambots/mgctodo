@@ -27,20 +27,22 @@
     </div>
   -->
     <div class="card-body">
-        <h5 class ="card-title"><%=task.detail%> &nbsp;
-          <a href="<%=task.summary%>" target="_blank"><%=task.siteUrl%></a></h5>
+        <h5 class ="card-title"><%=task.blogName%> &nbsp;
+          <a href="<%=task.siteUrl%>" target="_blank"><%=task.siteUrl%></a></h5>
 <!--
     </div>
     <div class="card-footer">
 -->
         <div class = "row">
-          <div class = "col-sm">
+<!--
+            <div class = "col-sm">
               <% if (task.isComplete == 'false') {%>
                   <h4><span class="badge badge-secondary">Incomplete</span></h4>
               <%} else { %>
                   <h4><span class="badge badge-secondary">Complete</span></h4>
               <%}%>
-          </div>
+            </div>
+  -->
           <div class = "col-sm">
             <h4><span class="badge">
                 <% if (task.isUnsyndicated == 'false') {%>
@@ -109,7 +111,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/task/delete/<%=task._id%>"> <i class="fas fa-trash-alt"></i></a>
                     </li>
-                    <li class="nav-item">
+<!--
+                      <li class="nav-item">
                         <form method="post" action="/task/complete/<%=task._id%>">
                             <button type="submit" class="btn btn-link">
                                 <% if (task.isComplete == 'false') {%>
@@ -120,6 +123,7 @@
                             </button>
                         </form>
                     </li>
+-->                    
                 </ul>
             </div>
         </div>
