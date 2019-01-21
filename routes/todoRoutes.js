@@ -7,6 +7,7 @@ const addController = require('../controllers/addController');
 const editController = require('../controllers/editController');
 const deleteController = require('../controllers/deleteController');
 const completeController = require('../controllers/completeController');
+const toggleController = require('../controllers/toggleController');
 
 router.post('/task/complete/:id', completeController.commitComplete);
 router.get('/task/delete/:id', deleteController.deleteTask);
