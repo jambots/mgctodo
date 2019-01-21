@@ -1,6 +1,7 @@
 <div class="card border-primary" style="width: 100%">
     <div class="card-header">
-    <div class="row">
+<!--
+      <div class="row">
         <div class="col-sm">
             *** Due By:
             <%if (task.dueDate != '') { %>
@@ -23,12 +24,15 @@
             <% } %>
         </div>
         </div>
+      -->
     </div>
     <div class="card-body">
         <h5 class ="card-title"><%=task.summary%></h5>
         <p class="card-text"><%=task.detail%></p>
+<!--
     </div>
     <div class="card-footer">
+-->
         <div class = "row">
           <div class = "col-sm">
               <% if (task.isComplete == 'false') {%>
