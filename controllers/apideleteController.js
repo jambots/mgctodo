@@ -9,7 +9,7 @@ exports.confirmDelete = async (req, res) => {
     const dbParams = await util.setupDB();
     const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
     //let status = (task.isComplete == 'false') ? 'true' : 'false';
-    let status = 'false';
+    let status = 'true';
     await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isComplete: status } });
     dbParams.client.close();
     res.redirect('/api/books');
