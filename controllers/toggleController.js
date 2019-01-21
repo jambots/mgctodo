@@ -26,7 +26,7 @@ exports.toggleSyndication = async (req, res) => {
   }
   catch (err) {debug(err);}
 };
-exports.toggleApproval = async (req, res) => {
+exports.toggleApproving = async (req, res) => {
   try {
       const { id } = req.params;
       const dbParams = await util.setupDB();
