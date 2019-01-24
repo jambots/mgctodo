@@ -34,7 +34,13 @@ exports.showBooks = async function (req, res) {
   //*/
 }
 exports.postBooks = async function (req, res) {
-  res.json(req);
+
+  foreach (string s in req.Params.Keys )
+{
+    res.Write(s.ToString() + ":" + req.Params[s] + "<br>");       
+}
+
+//res.json(req);
 /*
   //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {
