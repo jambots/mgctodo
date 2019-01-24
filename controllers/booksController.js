@@ -34,9 +34,9 @@ exports.showBooks = async function (req, res) {
   //*/
 }
 exports.postBooks = async function (req, res) {
-  res.Write("Response");
+  res.write("Response");
   //for (var s in req.Params.Keys){
 //    res.Write(s.ToString() + ":" + req.Params[s] + "<br>");
   //}
-  res.send();
+  res.end();
 }
