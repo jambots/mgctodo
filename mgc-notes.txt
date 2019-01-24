@@ -97,3 +97,20 @@ https://dev.to/aurelkurtula/building-a-restful-api-with-express-and-mongodb--3mm
 ********************** experimental
 
 https://github.com/jambots/crud.git
+
+lets encrypt
+
+https://docs.bitnami.com/bch/how-to/generate-install-lets-encrypt-ssl/
+
+sudo lego --tls --email="tschubring@gmail.com" --domains="hubspoke.chromaris.org" --path="/etc/lego" run
+
+
+sudo ln -s /etc/lego/certificates/hubspoke.chromaris.org.key /opt/bitnami/apache2/conf/server.key
+sudo ln -s /etc/lego/certificates/hubspoke.chromaris.org.crt /opt/bitnami/apache2/conf/server.crt
+sudo chown root:root /opt/bitnami/apache2/conf/server*
+sudo chmod 600 /opt/bitnami/apache2/conf/server*
+
+sudo ln -s /etc/lego/certificates/chromaris.org.key /opt/bitnami/apache2/conf/server.key
+
+
+sudo ln -s /etc/lego/certificates/hubspoke.chromaris.org.key /opt/bitnami/apache2/conf/server.key
