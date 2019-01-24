@@ -35,7 +35,7 @@ exports.showBooks = async function (req, res) {
 }
 exports.postBooks = async function (req, res) {
   res.write("Response");
-  let body = '';
+  let body = 'Body ';
   req.on('data', chunk => {
     body += chunk.toString();
   });
