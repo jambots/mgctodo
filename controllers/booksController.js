@@ -39,7 +39,7 @@ exports.postBooks = async function (req, res) {
     res.write(chunk.toString());
   });
   req.on('end', () => {
-
+    res.end();
   });
 
   //res.write(req);
