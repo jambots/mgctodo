@@ -22,6 +22,7 @@ router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
 */
 router.post('/api/books/', booksController.showBooks);
+router.get('/api/books/', booksController.showBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
 router.post('/api/apiadd/', apiaddController.saveApi);
 router.post('/api/apidelete/:id', apideleteController.confirmDelete);
