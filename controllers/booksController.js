@@ -34,12 +34,12 @@ exports.showBooks = async function (req, res) {
   //*/
 }
 exports.postBooks = async function (req, res) {
-  res json(req.params);
-/*
   res.write("Response");
+  res.write(req);
+/*
   for (var s in req.params.keys){
     res.write(s.toString() + ":" + req.params[s] + "<br>");
   }
-  res.end();
   */
+  res.end();
 }
