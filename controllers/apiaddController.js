@@ -7,7 +7,7 @@ exports.addApi = (req, res) => {
 };
 
 exports.saveApi = async (req, res) => {
-  if(req.hash=="031987ad563836dd8339615bae2abbb3"){
+  //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {////
       const task = req.body;
       const dbParams = await util.setupDB();
@@ -27,7 +27,7 @@ exports.saveApi = async (req, res) => {
       debug(err);
     }
 
-  }else{
-    debug("inauthentic");
-  }
+  //}else{
+  //  debug("inauthentic");
+  //}
 };
