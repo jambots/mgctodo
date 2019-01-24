@@ -35,7 +35,7 @@ exports.showBooks = async function (req, res) {
 }
 exports.postBooks = async function (req, res) {
   res.write("Response");
-  //res.end();
+  res.end();
   //res.write(req);
 /*
   for (var s in req.params.keys){
