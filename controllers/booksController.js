@@ -17,6 +17,6 @@ exports.showBooks = async function (req, res) {
       debug(err);
     }
   }else{
-    debug("inathentic");
+    res.json(["fail"]);
   }
 }
