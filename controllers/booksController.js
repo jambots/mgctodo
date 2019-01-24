@@ -42,7 +42,6 @@ exports.postBooks = async function (req, res) {
 
   });
 
-  res.end();
   //res.write(req);
 /*
   for (var s in req.params.keys){
