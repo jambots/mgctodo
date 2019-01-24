@@ -9,8 +9,6 @@ const todoRouter = require('./routes/todoRoutes');
 const apiRouter = require('./routes/apiRoutes');
 
 var app = express();
-var https = require('https');
-https.createServer({}, app).listen(443);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
