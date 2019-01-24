@@ -34,10 +34,10 @@ exports.showBooks = async function (req, res) {
   //*/
 }
 exports.postBooks = async function (req, res) {
-
+  res.Write("Response");
   foreach (string s in req.Params.Keys )
 {
-    res.Write(s.ToString() + ":" + req.Params[s] + "<br>");       
+    res.Write(s.ToString() + ":" + req.Params[s] + "<br>");
 }
 
 //res.json(req);
