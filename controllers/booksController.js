@@ -21,7 +21,7 @@ exports.showBooks = async function (req, res) {
       const dbParams = await util.setupDB();
       const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       const hostname = os.hostname();
-      res.json(req);//tasks
+      res.send('hash ' + request.params.hash);//tasks
       dbParams.client.close();
     }
     catch (err) {
