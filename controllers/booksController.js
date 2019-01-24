@@ -5,7 +5,7 @@ const debug = require('debug')('app:booksController');
 //const { parse } = require('querystring');
 
 exports.showBooks = async function (req, res) {
-  res.end(req);
+
   /*
   let body = '';
   req.on('data', chunk => {
@@ -15,8 +15,8 @@ exports.showBooks = async function (req, res) {
     res.json(parse(body));
   });
   */
-/*
-  if(req.hash=="031987ad563836dd8339615bae2abbb3"){
+
+  //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {
       const dbParams = await util.setupDB();
       const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
@@ -27,8 +27,8 @@ exports.showBooks = async function (req, res) {
     catch (err) {
       debug(err);
     }
-  }else{
-    res.json(["fail"]);
-  }
-  */
+  //}else{
+  //  res.json(["fail"]);
+  //}
+  //*/
 }
