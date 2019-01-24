@@ -34,7 +34,7 @@ exports.showBooks = async function (req, res) {
   //*/
 }
 exports.postBooks = async function (req, res) {
-  res.json(["posted"]);
+  res.json(req.body);
 /*
   //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {
