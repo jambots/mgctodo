@@ -41,10 +41,12 @@ exports.postBooks = async function (req, res) {
   });
   req.on('end', () => {
     var parts=body.split('"');
-    for (var p=0;p<parts.length; p++){
-      res.write(p+" "+parts[p]+"<br>");
+    for (var p=1;p<parts.length-1; p+=2){
+      var key=parts[p];
+      var val=parts[p+1].split(" ")[0];
+      res.write(key+" = "+val+"<br>");
     }
-      
+
       res.end('');
   });
   //res.write(req);
