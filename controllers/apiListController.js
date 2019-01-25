@@ -15,7 +15,7 @@ exports.listSites = async function(req, res) {
       res.json(sites);
     }
     else{
-      res.json(params);
+      res.json(req.body.hash);
     }
     dbParams.client.close();
   }
