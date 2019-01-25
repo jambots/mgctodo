@@ -35,6 +35,21 @@ exports.showBooks = async function (req, res) {
 exports.postBooks = async function (req, res) {
   //res.write("Response");
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
+    let body = '';
+    req.on('data', chunk => {
+        body += chunk.toString();
+    });
+    var params={};
+    req.on('end', () => {
+      var parts=body.split('"');
+      for (var p=1;p<parts.length-1; p+=2){
+        var key=parts[p];
+        var val="|"+parts[p+1].split("\r\n")[2]+"|";
+        params[key]=value;
+      }
+   });
+
+
      try {
        const dbParams = await util.setupDB();
        const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
@@ -47,19 +62,6 @@ exports.postBooks = async function (req, res) {
        debug(err);
      }
    //}
-/*
-   let body = '';
-   req.on('data', chunk => {
-       body += chunk.toString();
-   });
-   var params={};
-   req.on('end', () => {
-     var parts=body.split('"');
-     for (var p=1;p<parts.length-1; p+=2){
-       var key=parts[p];
-       var val="|"+parts[p+1].split("\r\n")[2]+"|";
-       params[key]=value;
-     }
-  });
-  */
+
+
 }
