@@ -8,11 +8,9 @@ const bodyParser = require("body-parser");
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
  * and exposes the resulting object (containing the keys and values) on req.body
  */
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-exports.showBooks = async function (req, res) {
 
+exports.showBooks = async function (req, res) {
+  res.json(req.body.hash)
   /*
   let body = '';
   req.on('data', chunk => {
@@ -22,7 +20,7 @@ exports.showBooks = async function (req, res) {
     res.json(parse(body));
   });
   */
-
+/*
   //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {
       const dbParams = await util.setupDB();
@@ -38,7 +36,8 @@ exports.showBooks = async function (req, res) {
   //}else{
   //  res.json(["fail"]);
   //}
-  //*/
+  //
+  */
 }
 exports.postBooks = async function (req, res) {
   //res.write("Response");
