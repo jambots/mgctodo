@@ -15,7 +15,7 @@ exports.setupDB = async function () {
     debug(err);
   }
 };
-exports.rando = function () {
+exports.rando = async function () {
 
     return Math.floor(100*Math.random());
 };

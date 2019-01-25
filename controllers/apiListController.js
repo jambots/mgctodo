@@ -14,7 +14,7 @@ exports.listSites = async function(req, res) {
     //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
     //console.log(params);
     //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-    var num=util.rando();
+    var num=await util.rando();
     if(num>50){
       res.json(sites);
     }
