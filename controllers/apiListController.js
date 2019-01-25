@@ -28,6 +28,11 @@ exports.listSites = async function(req, res) {
 }
 exports.myFunction = async function(req) {
 //const myFunction=asynch function(req){
+  console.log('myFunction');
+  var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
+  return params;
+}
+/*
   var params={hash:"", url:""};
   let body = '';
   req.on('data', chunk => {
@@ -43,3 +48,4 @@ exports.myFunction = async function(req) {
   });
   return params;
 }
+*/
