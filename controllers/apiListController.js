@@ -2,8 +2,8 @@ const util = require('./utilController');
 const { MongoClient } = require('mongodb');
 const os = require("os");
 const debug = require('debug')('app:apiListController');
-const bodyParser = require("body-parser");
-const querystring = require('querystring');
+//const bodyParser = require("body-parser");
+//const querystring = require('querystring');
 
 exports.listSites = async function(req, res) {
   try {
@@ -14,8 +14,8 @@ exports.listSites = async function(req, res) {
     //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
     //console.log(params);
     //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-    var hash=req.query.hash;
-    if(hash=="031987ad563836dd8339615bae2abbb3"){
+    var num=util.rando();
+    if(num>50){
       res.json(sites);
     }
     else{

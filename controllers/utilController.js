@@ -15,11 +15,7 @@ exports.setupDB = async function () {
     debug(err);
   }
 };
-exports.sevenDB = async function () {
-  try {
-    return 7;
-  }
-  catch (err) {
-    debug(err);
-  }
+exports.rando = function () {
+
+    return Math.floor(100*Math.random());
 };
