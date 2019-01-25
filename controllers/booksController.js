@@ -56,10 +56,15 @@ exports.postBooks = async function (req, res) {
         var parts=body.split('"');
         for (var p=1;p<parts.length-1; p+=2){
           var key=parts[p];
-          var val="|"+parts[p+1].split("\r\n")[2]+"|";
+          var val=parts[p+1].split("\r\n")[2];
           params[key]=val;
         }
-        res.json(params);
+        if(params.hash=="031987ad563836dd8339615bae2abbb3"){
+          res.json(tasks);
+        }
+        else{
+          res.json(params);
+        }
      });
 
         //res.json(tasks);//tasks
