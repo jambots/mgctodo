@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 const os = require("os");
 const debug = require('debug')('app:apiListController');
 const bodyParser = require("body-parser");
-
+const querystring = require('querystring');
 
 exports.listSites = async function(req, res) {
   try {
@@ -14,8 +14,8 @@ exports.listSites = async function(req, res) {
     //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
     //console.log(params);
     //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-    var num=await util.sevenDB;
-    if(num==7){
+    var hash=req.query.hash;
+    if(hash=="031987ad563836dd8339615bae2abbb3"){
       res.json(sites);
     }
     else{
