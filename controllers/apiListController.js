@@ -5,30 +5,29 @@ const debug = require('debug')('app:apiListController');
 const bodyParser = require("body-parser");
 
 
-exports.listSites = async function (req, res) {
-  //res.write("Response");
-    //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-    try {
-      const dbParams = await util.setupDB();
-      const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
-      const hostname = os.hostname();
-      const params = await myfunction(req);
-      if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-        res.json(sites);
-      }
-      else{
-        res.json(params);
-      }
+exports.listSites = async function(req, res) {
+  try {
+    const dbParams = await util.setupDB();
+    const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
+    const hostname = os.hostname();
+    const params = await myfunction(req);
+    if(params.hash=="031987ad563836dd8339615bae2abbb3"){
+      res.json(sites);
+    }
+    else{
+      res.json(params);
+    }
 
-      //res.send('hash ' + request.params.hash);//tasks
-      //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-      dbParams.client.close();
-    }
-    catch (err) {
-      debug(err);
-    }
+    //res.send('hash ' + request.params.hash);//tasks
+    //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
+    dbParams.client.close();
+  }
+  catch (err) {
+    debug(err);
+  }
 }
-const myFunction=asynch function(req){
+exports.myFunction = async function(req) {
+//const myFunction=asynch function(req){
   var params={hash:"", url:""};
   let body = '';
   req.on('data', chunk => {
@@ -42,5 +41,5 @@ const myFunction=asynch function(req){
       params[key]=val;
     }
   });
-  return params;  
+  return params;
 }
