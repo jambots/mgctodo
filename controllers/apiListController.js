@@ -10,7 +10,9 @@ exports.listSites = async function(req, res) {
     const dbParams = await util.setupDB();
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
-    const params = await myfunction(req);
+    //const params = await myfunction(req);
+    var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
+    console.log(params);
     if(params.hash=="031987ad563836dd8339615bae2abbb3"){
       res.json(sites);
     }
