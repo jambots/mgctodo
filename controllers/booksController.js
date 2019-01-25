@@ -40,7 +40,11 @@ exports.postBooks = async function (req, res) {
       body += chunk.toString();
   });
   req.on('end', () => {
-      res.json(body);
+    var parts=body.split('"');
+    for (var p=0;p<parts.length; p++){
+      res.write(p+" "+parts[p]+"<br>");
+    }
+      
       res.end('');
   });
   //res.write(req);
