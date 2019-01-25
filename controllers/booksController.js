@@ -2,7 +2,15 @@ const util = require('./utilController');
 const { MongoClient } = require('mongodb');
 const os = require("os");
 const debug = require('debug')('app:booksController');
+const bodyParser = require("body-parser");
 
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 exports.showBooks = async function (req, res) {
 
   /*
@@ -35,7 +43,7 @@ exports.showBooks = async function (req, res) {
 exports.postBooks = async function (req, res) {
   //res.write("Response");
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-    let body = req.data.join('|');
+    let body = req.data;
     var params={hash:'', url:''};
 /*
     req.on('data', chunk => {
