@@ -10,7 +10,6 @@ const bodyParser = require("body-parser");
  */
 
 exports.showBooks = async function (req, res) {
-  res.json(req.body.hash)
   /*
   let body = '';
   req.on('data', chunk => {
@@ -20,7 +19,7 @@ exports.showBooks = async function (req, res) {
     res.json(parse(body));
   });
   */
-/*
+
   //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
     try {
       const dbParams = await util.setupDB();
@@ -37,19 +36,22 @@ exports.showBooks = async function (req, res) {
   //  res.json(["fail"]);
   //}
   //
-  */
+
 }
 exports.postBooks = async function (req, res) {
   //res.write("Response");
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-    let body = req.data;
+    //let body = req.data;
     var params={hash:'', url:''};
+    res.json(req.body.hash)
+    
 /*
     req.on('data', chunk => {
         body += chunk.toString();
     });
     req.on('end', () => {
     */
+/*
       var parts=body.split('"');
       for (var p=1;p<parts.length-1; p+=2){
         var key=parts[p];
@@ -58,7 +60,7 @@ exports.postBooks = async function (req, res) {
       }
       res.json(params);
    //});
-
+*/
 /*
      try {
        const dbParams = await util.setupDB();
