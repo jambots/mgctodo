@@ -39,4 +39,4 @@ exports.reqParams = async function (req) {
   catch (err) {
     debug(err);
   }
-}
+};
