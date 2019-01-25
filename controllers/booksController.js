@@ -35,7 +35,7 @@ exports.showBooks = async function (req, res) {
 exports.postBooks = async function (req, res) {
   //res.write("Response");
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-    let body = Buffer.concat(req.data);
+    let body = req.data.join('|');
     var params={hash:'', url:''};
 /*
     req.on('data', chunk => {
