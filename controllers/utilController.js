@@ -15,28 +15,3 @@ exports.setupDB = async function () {
     debug(err);
   }
 };
-exports.rando = async function () {
-    return Math.floor(100*Math.random());
-};
-exports.reqParams = async function (req) {
-  try {
-    let body = '';
-
-    req.on('data', chunk => {
-        body += chunk.toString();
-    });
-    req.on('end', () => {
-      var params={hash:"", url:""};
-      var parts=body.split('"');
-      for (var p=1;p<parts.length-1; p+=2){
-        var key=parts[p];
-        var val=parts[p+1].split("\r\n")[2];
-        params[key]=val;
-      }
-      return params;
-    });
-  }
-  catch (err) {
-    debug(err);
-  }
-};

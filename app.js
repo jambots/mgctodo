@@ -56,7 +56,7 @@ app.get('/api/apiadd/', apiRouter);
 app.post('/api/apidelete/:id', apiRouter);
 app.post('/api/list/', apiRouter);
 app.post('/test-page/', function(req, res) {
-    res.json(req.body.hash);
+    res.json(req.body);
 });
 
 // catch favicon requests and respond
