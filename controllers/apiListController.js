@@ -26,7 +26,7 @@ exports.listSites = async function(req, res) {
     debug(err);
   }
 }
-exports.myFunction = async function(req) {
+let myFunction = async function(req) {
 //const myFunction=asynch function(req){
   console.log('myFunction');
   var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
