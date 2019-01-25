@@ -7,6 +7,7 @@ const debug = require('debug')('app:apiListController');
 
 exports.listSites = async function(req, res) {
   try {
+    var num=await util.rando();
     const dbParams = await util.setupDB();
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
@@ -14,7 +15,6 @@ exports.listSites = async function(req, res) {
     //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
     //console.log(params);
     //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-    var num=await util.rando();
     if(num>50){
       res.json(sites);
     }
