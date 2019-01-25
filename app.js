@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
@@ -53,7 +55,9 @@ app.post('/api/apiadd/', apiRouter);
 app.get('/api/apiadd/', apiRouter);
 app.post('/api/apidelete/:id', apiRouter);
 app.post('/api/list/', apiRouter);
-
+app.post('/test-page/', function(req, res) {
+    res.json(req.body);
+});
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));
