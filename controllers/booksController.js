@@ -45,7 +45,7 @@ exports.postBooks = async function (req, res) {
       for (var p=1;p<parts.length-1; p+=2){
         var key=parts[p];
         var val="|"+parts[p+1].split("\r\n")[2]+"|";
-        params[key]=value;
+        params[key]=val;
       }
    });
 
