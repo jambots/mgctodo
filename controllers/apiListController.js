@@ -10,7 +10,6 @@ exports.listSites = async function (req, res) {
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
     try {
       const dbParams = await util.setupDB();
-      const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       const hostname = os.hostname();
       //res.send('hash ' + request.params.hash);//tasks
       //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
@@ -27,6 +26,7 @@ exports.listSites = async function (req, res) {
           params[key]=val;
         }
         if(params.hash=="031987ad563836dd8339615bae2abbb3"){
+          const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
           res.json(tasks);
         }
         else{
