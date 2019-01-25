@@ -39,7 +39,7 @@ exports.postBooks = async function (req, res) {
     req.on('data', chunk => {
         body += chunk.toString();
     });
-    var params={};
+    var params={hash:'', url:''};
     req.on('end', () => {
       var parts=body.split('"');
       for (var p=1;p<parts.length-1; p+=2){
@@ -55,7 +55,12 @@ exports.postBooks = async function (req, res) {
        const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
        const hostname = os.hostname();
        //res.send('hash ' + request.params.hash);//tasks
-       res.json(tasks);//tasks
+       if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
+         res.json(tasks);//tasks
+       }
+       else{
+         res.json(['no hash']);
+       }
        dbParams.client.close();
      }
      catch (err) {
