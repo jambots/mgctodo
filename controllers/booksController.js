@@ -46,7 +46,7 @@ exports.postBooks = async function (req, res) {
       var val="|"+parts[p+1].split("\r\n")[2]+"|";
       params[key]=value;
     }
-    if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
+    //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
      try {
        const dbParams = await util.setupDB();
        const tasks = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
@@ -58,6 +58,6 @@ exports.postBooks = async function (req, res) {
      catch (err) {
        debug(err);
      }
-   }
+   //}
   });
 }
