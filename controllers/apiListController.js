@@ -11,13 +11,15 @@ exports.listSites = async function(req, res) {
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
     //const params = await myfunction(req);
-    var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
-    console.log(params);
-    if(params.hash=="031987ad563836dd8339615bae2abbb3"){
+    //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
+    //console.log(params);
+    //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
+    var num=await util.seven;
+    if(num==7){
       res.json(sites);
     }
     else{
-      res.json(params);
+      res.json(num);
     }
 
     //res.send('hash ' + request.params.hash);//tasks
