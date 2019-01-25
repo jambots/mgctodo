@@ -47,7 +47,22 @@ exports.postBooks = async function (req, res) {
       const hostname = os.hostname();
       //res.send('hash ' + request.params.hash);//tasks
       //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-        res.json(tasks);//tasks
+      var params={hash:"", url:""};
+      let body = '';
+      req.on('data', chunk => {
+          body += chunk.toString();
+      });
+      req.on('end', () => {
+        var parts=body.split('"');
+        for (var p=1;p<parts.length-1; p+=2){
+          var key=parts[p];
+          var val="|"+parts[p+1].split("\r\n")[2]+"|";
+          params[key]=val;
+        }
+        res.json(params);
+     });
+
+        //res.json(tasks);//tasks
       //}
       //else{
     //    res.json(['no hash']);
