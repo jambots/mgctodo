@@ -1,8 +1,5 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const debug = require('debug')('app:utilController');
-exports.seven = asynch function(){
-  return 7;
-}
 exports.setupDB = async function () {
   const url = process.env.DB_URL;
   debug(`attempting to connect to database at ${url}`);
@@ -14,6 +11,14 @@ exports.setupDB = async function () {
     return ({ client: client, collection: collection })
   }
 
+  catch (err) {
+    debug(err);
+  }
+};
+exports.sevenDB = async function () {
+  try {
+    return 7;
+  }
   catch (err) {
     debug(err);
   }

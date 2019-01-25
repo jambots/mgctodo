@@ -14,7 +14,7 @@ exports.listSites = async function(req, res) {
     //var params={hash:"031987ad563836dd8339615bae2abbb3", url:""};
     //console.log(params);
     //if(params.hash=="031987ad563836dd8339615bae2abbb3"){
-    var num=await util.seven;
+    var num=await util.sevenDB;
     if(num==7){
       res.json(sites);
     }
