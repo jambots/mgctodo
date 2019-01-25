@@ -31,6 +31,6 @@ exports.reqParams = async function (req) {
       var val=parts[p+1].split("\r\n")[2];
       params[key]=val;
     }
+    return params;
   });
-  return params;
 }
