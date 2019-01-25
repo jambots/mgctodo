@@ -34,18 +34,6 @@ exports.showBooks = async function (req, res) {
 }
 exports.postBooks = async function (req, res) {
   //res.write("Response");
-  let body = '';
-  req.on('data', chunk => {
-      body += chunk.toString();
-  });
-  var params={};
-  req.on('end', () => {
-    var parts=body.split('"');
-    for (var p=1;p<parts.length-1; p+=2){
-      var key=parts[p];
-      var val="|"+parts[p+1].split("\r\n")[2]+"|";
-      params[key]=value;
-    }
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
      try {
        const dbParams = await util.setupDB();
@@ -59,5 +47,17 @@ exports.postBooks = async function (req, res) {
        debug(err);
      }
    //}
+   let body = '';
+   req.on('data', chunk => {
+       body += chunk.toString();
+   });
+   var params={};
+   req.on('end', () => {
+     var parts=body.split('"');
+     for (var p=1;p<parts.length-1; p+=2){
+       var key=parts[p];
+       var val="|"+parts[p+1].split("\r\n")[2]+"|";
+       params[key]=value;
+     }
   });
 }
