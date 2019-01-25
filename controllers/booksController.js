@@ -47,6 +47,7 @@ exports.postBooks = async function (req, res) {
        debug(err);
      }
    //}
+/*
    let body = '';
    req.on('data', chunk => {
        body += chunk.toString();
@@ -60,4 +61,5 @@ exports.postBooks = async function (req, res) {
        params[key]=value;
      }
   });
+  */
 }
