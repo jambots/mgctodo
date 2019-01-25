@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 
 const booksController = require('../controllers/booksController');
+const apiListController = require('../controllers/apiListController');
 const apiaddController = require('../controllers/apiaddController');
 const apideleteController = require('../controllers/apideleteController');
 
@@ -21,6 +22,7 @@ router.get('/task/add/', addController.addTask);
 router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
 */
+router.post('/api/list/', apiListController.listSites);
 router.get('/api/books/', booksController.showBooks);
 router.post('/api/books/', booksController.postBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
