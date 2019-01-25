@@ -43,8 +43,8 @@ exports.postBooks = async function (req, res) {
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
     //let body = req.data;
     var params={hash:'', url:''};
-    res.json(req.body.hash)
-    
+    res.json(req.body)
+
 /*
     req.on('data', chunk => {
         body += chunk.toString();
