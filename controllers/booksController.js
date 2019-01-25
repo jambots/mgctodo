@@ -41,17 +41,11 @@ exports.showBooks = async function (req, res) {
 exports.postBooks = async function (req, res) {
   //res.write("Response");
     //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
-    //let body = req.data;
-    var params={hash:'', url:''};
-    res.json(req.body)
-
-/*
+    let body = '';
     req.on('data', chunk => {
         body += chunk.toString();
     });
     req.on('end', () => {
-    */
-/*
       var parts=body.split('"');
       for (var p=1;p<parts.length-1; p+=2){
         var key=parts[p];
@@ -59,8 +53,8 @@ exports.postBooks = async function (req, res) {
         params[key]=val;
       }
       res.json(params);
-   //});
-*/
+   });
+
 /*
      try {
        const dbParams = await util.setupDB();
