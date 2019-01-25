@@ -49,9 +49,9 @@ exports.postBooks = async function (req, res) {
       //if(params["hash"]=="031987ad563836dd8339615bae2abbb3"){
         res.json(tasks);//tasks
       //}
-      else{
-        res.json(['no hash']);
-      }
+      //else{
+    //    res.json(['no hash']);
+      //}
       dbParams.client.close();
     }
     catch (err) {
