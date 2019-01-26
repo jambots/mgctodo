@@ -27,7 +27,7 @@ exports.listSites = async function(req, res) {
     if(deltaSec<60){returnObj.info.timeMatch=true;}
     returnObj.info.authMatch=false;
     if(req.headers.authorization==authReturn){returnObj.info.authMatch=true;}
-    //returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
+    returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if((returnObj.info.authMatch==true)&&(returnObj.info.timeMatch==true)){
       const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       returnObj.records=sites;
