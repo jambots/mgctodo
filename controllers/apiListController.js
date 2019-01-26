@@ -15,7 +15,7 @@ exports.listSites = async function(req, res) {
     const secret="031987ad563836dd8339615bae2abbb3";
     const serverTime=Math.floor(new Date().getTime()/1000);
     const deltaSec=Math.abs(Number(req.body.time)-serverTime);
-    let authString=req.body.url+req.body.time+secret+req.body.payload;
+    let authString=req.body.url+req.body.time+req.body.payload+secret;
     let authReturn=md5(authString);
     //res.json({sent:req.headers.authorization, returned:authReturn});
     var returnObj={headers:req.headers, body:req.body, records:[], info:{}};
@@ -27,7 +27,7 @@ exports.listSites = async function(req, res) {
     if(deltaSec<60){returnObj.info.timeMatch=true;}
     returnObj.info.authMatch=false;
     if(req.headers.authorization==authReturn){returnObj.info.authMatch=true;}
-
+    returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if((returnObj.info.authMatch==true)&&(returnObj.info.timeMatch==true)){
       const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       returnObj.records=sites;
