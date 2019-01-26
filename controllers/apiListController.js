@@ -18,7 +18,8 @@ exports.listSites = async function(req, res) {
     const deltaSec=Math.abs(Number(req.body.time)-serverTime);
     let authString=req.body.url+req.body.time+secret+req.body.payload;
     let authReturn=md5(authString);
-    res.json({sent:req.headers.authorization, returned:authReturn});
+    //res.json({sent:req.headers.authorization, returned:authReturn});
+    res.json(req.headers);
     //if(req.body.hash=="031987ad563836dd8339615bae2abbb3"){
     /*
     if(req.headers.authorization=="031987ad563836dd8339615bae2abbb3"){
