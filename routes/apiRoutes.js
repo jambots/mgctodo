@@ -2,9 +2,11 @@ let express = require('express');
 let router = express.Router();
 
 const booksController = require('../controllers/booksController');
-const apiListController = require('../controllers/apiListController');
 const apiaddController = require('../controllers/apiaddController');
 const apideleteController = require('../controllers/apideleteController');
+
+const apiListController = require('../controllers/apiListController');
+const apiUnsyndicateController = require('../controllers/apiUnsyndicateController');
 
 /*
 const showController = require('../controllers/showController');
@@ -22,11 +24,13 @@ router.get('/task/add/', addController.addTask);
 router.post('/task/add/', addController.saveTask);
 router.get('/', showController.showTasks);
 */
-router.post('/api/list/', apiListController.listSites);
 router.get('/api/books/', booksController.showBooks);
 router.post('/api/books/', booksController.postBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
 router.post('/api/apiadd/', apiaddController.saveApi);
 router.post('/api/apidelete/:id', apideleteController.confirmDelete);
+
+router.post('/api/list/', apiListController.listSites);
+router.post('/api/list/', apiUnsyndicateController.unsyndicateSite);
 
 module.exports = router;
