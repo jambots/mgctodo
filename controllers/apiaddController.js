@@ -19,7 +19,7 @@ exports.saveApi = async (req, res) => {
         await dbParams.collection.insertOne(task);
       }
       dbParams.client.close();
-      res.redirect('/api/books/');
+      res.redirect('/api/list/');
   // get false isComplete   const tasks = await dbParams.collection.find({isComplete:'false'}).sort({ dueDate: 1 }).toArray();
     }
 
