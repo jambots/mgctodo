@@ -32,7 +32,5 @@ router.post('/api/apiadd/', apiaddController.saveApi);
 
 router.post('/api/list/', apiListController.listSites);
 //router.post('/api/unsyndicate/', apiUnsyndicateController.unsyndicateSite);
-router.post('/api/unsyndicate/', function (req, res) {
-  res.send('Got a POST request');
-});
+router.post('/api/unsyndicate/', apiUnsyndicateController.unsyndicateSite);
 module.exports = router;

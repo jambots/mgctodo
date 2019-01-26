@@ -1,7 +1,11 @@
 const { ObjectId } = require('mongodb');
 const util = require('./utilController');
-const debug = require('debug')('app:apideleteController');
+const debug = require('debug')('app:apiUnsyndicateController');
+exports.unsyndicateSite = async function (req, res) {
+  res.send('Got a POST request');
+};
 
+/*
 exports.unsyndicateSite = async function(req, res) {
   try {
     const { id } = req.params;
@@ -24,6 +28,10 @@ exports.unsyndicateSite = async function(req, res) {
     debug(err);
   }
 };
+
+*/
+
+
 
 
 /*
