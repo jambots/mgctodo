@@ -64,9 +64,12 @@ app.post('/api/unsyndicate/', function (req, res) {
 })
 */
 // catch favicon requests and respond
-app.post('/api/unsyndicate/', apiRouter);
-app.use('/favicon.ico', (req, res) => res.status(204));
+app.post('/api/unsyndicate/:id', apiRouter);
 
+
+
+
+app.use('/favicon.ico', (req, res) => res.status(204));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

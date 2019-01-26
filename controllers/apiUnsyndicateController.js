@@ -2,7 +2,7 @@ const { ObjectId } = require('mongodb');
 const util = require('./utilController');
 const debug = require('debug')('app:apiUnsyndicateController');
 exports.unsyndicateSite = async function (req, res) {
-  res.send('Got a POST request');
+  res.send('Got a POT request');
 };
 
 /*
