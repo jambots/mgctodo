@@ -7,7 +7,7 @@ const apideleteController = require('../controllers/apideleteController');
 
 const apiListController = require('../controllers/apiListController');
 //const apiUnsyndicateController = require('../controllers/apiUnsyndicateController');
-router.post('/api/unsyndicate/:id', apiListController.unsyndicateSite);
+router.post('/api/foo/:id', apiListController.unsyndicateSite);
 
 /*
 const showController = require('../controllers/showController');
