@@ -7,7 +7,7 @@ exports.unsyndicateSite = async function (req, res) {
 
 exports.unsyndicateSite = async function(req, res) {
   try {
-    const.id=req.body.id;
+    const id=req.body.id;
     const dbParams = await util.setupDB();
     var returnObj={headers:req.headers, body:req.body, records:[]};
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
