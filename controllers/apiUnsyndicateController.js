@@ -28,8 +28,6 @@ exports.unsyndicateSite = async function(req, res) {
   }
 };
 
-*/
-
 
 
 
