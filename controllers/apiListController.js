@@ -21,8 +21,10 @@ exports.listSites = async function(req, res) {
     var returnObj=req.headers;
     returnObj.sentUrl=req.body.url;
     returnObj.sentTime=req.body.time;
+    returnObj.serverTime=serverTime;
     returnObj.authReturn=authReturn;
 
+    returnObj.deltaSec=deltaSec;
     returnObj.timeMatch=false;
     if(deltaSec<60){returnObj.timeMatch=true;}
     returnObj.authMatch=false;
