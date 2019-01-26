@@ -20,7 +20,22 @@ exports.listSites = async function(req, res) {
     debug(err);
   }
 }
-exports.unsyndicateSite = async (req, res) => {
+exports.foo = async (req, res) => {
+  try {
+    const dbParams = await util.setupDB();
+    const hostname = os.hostname();
+    var returnObj={headers:req.headers, body:req.body, records:[]};
+    returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
+    if(returnObj.auth.auth==true){
+      const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
+      returnObj.records=sites;
+    }
+    res.json(returnObj);
+    dbParams.client.close();
+  }
+  catch (err) {
+    debug(err);
+  }
 /*
   try {
     const { id } = req.params;
@@ -41,5 +56,5 @@ exports.unsyndicateSite = async (req, res) => {
     debug(err);
   };
   */
-  res.json(['unsyndicate']);
+  //res.json(['unsyndicate']);
 };
