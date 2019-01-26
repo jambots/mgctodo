@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const debug = require('debug')('app:utilController');
-
+/*
 exports.auth=function(bodyUrl, bodyTime, bodyPayload, reqAuthorization){
   var authObj={info:{}, params:{bodyUrl:bodyUrl, bodyTime:bodyTime, bodyPayload:bodyPayload, reqAuthorization:reqAuthorization}};
   const secret="031987ad563836dd8339615bae2abbb3";
@@ -23,6 +23,7 @@ exports.auth=function(bodyUrl, bodyTime, bodyPayload, reqAuthorization){
   }
   return authObj;
 }
+*/
 exports.setupDB = async function () {
   const url = process.env.DB_URL;
   debug(`attempting to connect to database at ${url}`);
