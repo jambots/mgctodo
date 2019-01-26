@@ -18,19 +18,17 @@ exports.listSites = async function(req, res) {
     let authString=req.body.url+req.body.time+secret+req.body.payload;
     let authReturn=md5(authString);
     //res.json({sent:req.headers.authorization, returned:authReturn});
-    var returnObj=req.headers;
-    returnObj.sentUrl=req.body.url;
-    returnObj.sentTime=req.body.time;
-    returnObj.serverTime=serverTime;
-    returnObj.authReturn=authReturn;
+    var returnObj={headers:req.headers, body:req.body, records:[], info:{}};
+    returnObj.info.serverTime=serverTime;
+    returnObj.info.authReturn=authReturn;
 
-    returnObj.deltaSec=deltaSec;
-    returnObj.timeMatch=false;
-    if(deltaSec<60){returnObj.timeMatch=true;}
-    returnObj.authMatch=false;
-    if(req.headers.authorization==authReturn){returnObj.authMatch=true;}
-    returnObj.records=[];
-    if((returnObj.authMatch==true)&&(returnObj.timeMatch==true)){
+    returnObj.info.deltaSec=deltaSec;
+    returnObj.info.timeMatch=false;
+    if(deltaSec<60){info.returnObj.timeMatch=true;}
+    returnObj.info.authMatch=false;
+    if(req.headers.authorization==authReturn){returnObj.info.authMatch=true;}
+
+    if((returnObj.info.authMatch==true)&&(returnObj.info.timeMatch==true)){
       const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       returnObj.records=sites;
     }

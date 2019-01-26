@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var debug = require('debug')('app');
 var querystring = require('querystring');
+var md5 = require('md5');
 
 const todoRouter = require('./routes/todoRoutes');
 const apiRouter = require('./routes/apiRoutes');
