@@ -4,6 +4,7 @@ const debug = require('debug')('app:apiUnsyndicateController');
 
 
 exports.unsyndicateSite = async (req, res) => {
+/*
   try {
     const { id } = req.params;
     const dbParams = await util.setupDB();
@@ -14,12 +15,14 @@ exports.unsyndicateSite = async (req, res) => {
       let status = 'true';
       await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
     }
-    res.redirect('/api/list/');
-    //res.json(returnObj);
+    //res.redirect('/api/list/');
+    res.json(returnObj);
     dbParams.client.close();
   }
 
   catch (err) {
     debug(err);
   };
+  */
+  res.json(['unsyndicate']);
 };
