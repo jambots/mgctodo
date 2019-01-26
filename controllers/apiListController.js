@@ -19,6 +19,9 @@ exports.listSites = async function(req, res) {
     let authReturn=md5(authString);
     //res.json({sent:req.headers.authorization, returned:authReturn});
     var returnObj=req.headers;
+    var returnObj.sentUrl=req.body.url;
+    var returnObj.sentTime=req.body.time;
+    var returnObj.authReturn=authReturn;
 
     returnObj.timeMatch=false;
     if(deltaSec<60){returnObj.timeMatch=true;}
