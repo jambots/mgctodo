@@ -57,7 +57,7 @@ app.get('/api/apiadd/', apiRouter);
 //app.post('/api/apidelete/:id', apiRouter);
 
 app.post('/api/list/', apiRouter);
-app.post('/api/unsyndicate/', apiRouter);
+app.post('/api/unsyndicate/:id', apiRouter);
 
 
 app.use('/favicon.ico', (req, res) => res.status(204));
