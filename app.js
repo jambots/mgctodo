@@ -49,12 +49,10 @@ app.post('/task/delete/:id', todoRouter);
 app.get('/task/complete/:id', todoRouter);
 app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
-app.get('/task/api/', todoRouter);
-app.get('/api/books/', apiRouter);
-app.post('/api/books/', apiRouter);
+
+//app.get('/task/api/', todoRouter);
 app.post('/api/apiadd/', apiRouter);
 app.get('/api/apiadd/', apiRouter);
-//app.post('/api/apidelete/:id', apiRouter);
 
 app.post('/api/list/', apiRouter);
 app.post('/api/unsyndicate/:id', apiRouter);
