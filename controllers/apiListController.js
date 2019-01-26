@@ -11,7 +11,7 @@ exports.listSites = async function(req, res) {
     const dbParams = await util.setupDB();
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
-    req.body.amazon=new Data().getTime();
+    req.body.amazon=new Date().getTime();
     //if(req.body.hash=="031987ad563836dd8339615bae2abbb3"){
     if(req.headers.authorization=="031987ad563836dd8339615bae2abbb3"){
       res.json(req.body);//sites
