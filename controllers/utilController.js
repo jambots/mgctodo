@@ -3,6 +3,7 @@ const debug = require('debug')('app:utilController');
 
 exports.auth=function(bodyUrl, bodyTime, bodyPayload, reqAuthorization){
   var authObj={info:{}, params:{bodyUrl:bodyUrl, bodyTime:bodyTime, bodyPayload:bodyPayload, reqAuthorization:reqAuthorization}};
+  /*
   const secret="031987ad563836dd8339615bae2abbb3";
   const serverTime=Math.floor(new Date().getTime()/1000);
   const deltaSec=Math.abs(Number(bodyTime)-serverTime);
@@ -21,6 +22,7 @@ exports.auth=function(bodyUrl, bodyTime, bodyPayload, reqAuthorization){
   if((authObj.info.authMatch==true)&&(authObj.info.timeMatch==true)){
     authObj.auth=true;
   }
+  */
   return authObj;
 }
 
