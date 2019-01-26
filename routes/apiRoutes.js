@@ -6,7 +6,8 @@ const apiaddController = require('../controllers/apiaddController');
 const apideleteController = require('../controllers/apideleteController');
 
 const apiListController = require('../controllers/apiListController');
-const apiUnsyndicateController = require('../controllers/apiUnsyndicateController');
+//const apiUnsyndicateController = require('../controllers/apiUnsyndicateController');
+router.post('/api/unsyndicate/:id', apiListController.unsyndicateSite);
 
 /*
 const showController = require('../controllers/showController');
@@ -31,6 +32,5 @@ router.post('/api/apiadd/', apiaddController.saveApi);
 //router.post('/api/apidelete/:id', apideleteController.confirmDelete);
 
 router.post('/api/list/', apiListController.listSites);
-router.post('/api/unsyndicate/:id', apiListController.unsyndicateSite);
 
 module.exports = router;
