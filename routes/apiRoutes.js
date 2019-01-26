@@ -28,7 +28,7 @@ router.get('/api/books/', booksController.showBooks);
 router.post('/api/books/', booksController.postBooks);
 router.get('/api/apiadd/', apiaddController.addApi);
 router.post('/api/apiadd/', apiaddController.saveApi);
-router.post('/api/apidelete/:id', apideleteController.confirmDelete);
+//router.post('/api/apidelete/:id', apideleteController.confirmDelete);
 
 router.post('/api/list/', apiListController.listSites);
 router.post('/api/unsyndicate/:id', apiUnsyndicateController.unsyndicateSite);
