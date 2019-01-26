@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const util = require('./utilController');
 const { MongoClient } = require('mongodb');
 const os = require("os");
@@ -5,13 +6,19 @@ const debug = require('debug')('app:apiListController');
 
 exports.unsyndicateSite = async function(req, res) {
   try {
+    const { id } = req.params;
     const dbParams = await util.setupDB();
     const hostname = os.hostname();
     var returnObj={headers:req.headers, body:req.body, records:[]};
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if(returnObj.auth.auth==true){
-      const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
-      returnObj.records=sites;
+      //const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
+      //returnObj.records=sites;
+      const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
+      //let status = (task.isComplete == 'false') ? 'true' : 'false';
+      let status = 'true';
+      await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
+
     }
     res.json(returnObj);
     dbParams.client.close();
