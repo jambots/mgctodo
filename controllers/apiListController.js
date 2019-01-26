@@ -11,13 +11,13 @@ exports.listSites = async function(req, res) {
     const dbParams = await util.setupDB();
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
-    if(req.body.hash=="031987ad563836dd8339615bae2abbb3"){
-      res.json(req.headers);
-
-      //res.json(sites);
+    req.body.amazon=new Data().getTime();
+    //if(req.body.hash=="031987ad563836dd8339615bae2abbb3"){
+    if(req.headers.authorization=="031987ad563836dd8339615bae2abbb3"){
+      res.json(req.body);//sites
     }
     else{
-      res.json(req.body.hash);
+      res.json(req.body);
     }
     dbParams.client.close();
   }
