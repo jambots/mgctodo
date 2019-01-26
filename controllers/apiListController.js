@@ -12,8 +12,8 @@ exports.listSites = async function(req, res) {
     const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
     if(req.body.hash=="031987ad563836dd8339615bae2abbb3"){
-      res.write(JSON.stringify(req.headers));
-      
+      res.json(req.headers);
+
       //res.json(sites);
     }
     else{
