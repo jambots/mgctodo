@@ -54,7 +54,7 @@ app.get('/api/books/', apiRouter);
 app.post('/api/books/', apiRouter);
 app.post('/api/apiadd/', apiRouter);
 app.get('/api/apiadd/', apiRouter);
-app.post('/api/apidelete/:id', apiRouter);
+//app.post('/api/apidelete/:id', apiRouter);
 
 app.post('/api/list/', apiRouter);
 app.post('/api/unsyndicate/:id', apiRouter);
