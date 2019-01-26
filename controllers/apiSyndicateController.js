@@ -1,16 +1,17 @@
-const { ObjectId } = require('mongodb');
 const util = require('./utilController');
-const debug = require('debug')('app:apiUnsyndicateController');
+const debug = require('debug')('app:apiSyndicateController');
 
-exports.unsyndicateSite = async function(req, res) {
+
+
+
+exports.syndicateSite = async function(req, res) {
   try {
-    const { id } = req.params;
     //const siteId=req.body.siteId;
     const dbParams = await util.setupDB();
     var returnObj={headers:req.headers, body:req.body, records:[]};
-    returnObj.siteIdParam=id;
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if(returnObj.auth.auth==true){
+/*
       //const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       //returnObj.records=sites;
 
@@ -19,6 +20,7 @@ exports.unsyndicateSite = async function(req, res) {
       await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
       const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
       returnObj.records.push(task);
+*/
     }
     res.json(returnObj);
     dbParams.client.close();

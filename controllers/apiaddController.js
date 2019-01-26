@@ -1,10 +1,11 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const util = require('./utilController');
 const debug = require('debug')('app:apiaddController');
-
+/*get handler not needed
 exports.addApi = (req, res) => {
   res.render('addTask', { title: 'Adding API' });
 };
+*/
 
 exports.saveApi = async (req, res) => {
   //if(req.hash=="031987ad563836dd8339615bae2abbb3"){
