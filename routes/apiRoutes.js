@@ -31,6 +31,6 @@ router.post('/api/apiadd/', apiaddController.saveApi);
 router.post('/api/apidelete/:id', apideleteController.confirmDelete);
 
 router.post('/api/list/', apiListController.listSites);
-router.post('/api/list/', apiUnsyndicateController.unsyndicateSite);
+router.post('/api/unsyndicate/', apiUnsyndicateController.unsyndicateSite);
 
 module.exports = router;
