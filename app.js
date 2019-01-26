@@ -57,8 +57,7 @@ app.get('/api/apiadd/', apiRouter);
 //app.post('/api/apidelete/:id', apiRouter);
 
 app.post('/api/list/', apiRouter);
-app.post('/api/foo/', apiRouter);
-app.get('/api/foo/', apiRouter);
+app.post('/api/unsyndicate/', apiRouter);
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));
