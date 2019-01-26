@@ -14,7 +14,8 @@ exports.unsyndicateSite = async (req, res) => {
       let status = 'true';
       await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
     }
-    res.json(returnObj);
+    res.redirect('/api/list/');
+    //res.json(returnObj);
     dbParams.client.close();
   }
 
