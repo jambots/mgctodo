@@ -58,6 +58,7 @@ app.get('/api/apiadd/', apiRouter);
 
 app.post('/api/list/', apiRouter);
 app.post('/api/foo/', apiRouter);
+app.get('/api/foo/', apiRouter);
 
 // catch favicon requests and respond
 app.use('/favicon.ico', (req, res) => res.status(204));
@@ -75,7 +76,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render(err);
 });
 
 module.exports = app;
