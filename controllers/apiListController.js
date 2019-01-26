@@ -1,12 +1,10 @@
 const util = require('./utilController');
 const { MongoClient } = require('mongodb');
-const os = require("os");
 const debug = require('debug')('app:apiListController');
 
 exports.listSites = async function(req, res) {
   try {
     const dbParams = await util.setupDB();
-    const hostname = os.hostname();
     var returnObj={headers:req.headers, body:req.body, records:[]};
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if(returnObj.auth.auth==true){
