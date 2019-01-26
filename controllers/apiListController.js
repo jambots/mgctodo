@@ -1,5 +1,4 @@
 const util = require('./utilController');
-const { MongoClient } = require('mongodb');
 const debug = require('debug')('app:apiListController');
 
 exports.listSites = async function(req, res) {

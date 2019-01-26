@@ -1,14 +1,11 @@
 const { ObjectId } = require('mongodb');
 const util = require('./utilController');
-const { MongoClient } = require('mongodb');
-const os = require("os");
-const debug = require('debug')('app:apiListController');
+const debug = require('debug')('app:apideleteController');
 
 exports.unsyndicateSite = async function(req, res) {
   try {
     const { id } = req.params;
     const dbParams = await util.setupDB();
-    const hostname = os.hostname();
     var returnObj={headers:req.headers, body:req.body, records:[]};
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if(returnObj.auth.auth==true){
