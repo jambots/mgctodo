@@ -25,12 +25,10 @@ exports.listSites = async function(req, res) {
 
     returnObj.timeMatch=false;
     if(deltaSec<60){returnObj.timeMatch=true;}
-    returnObj.urlMatch=false;
-    if(req.headers.host==req.body.url){returnObj.urlMatch=true;}
     returnObj.authMatch=false;
     if(req.headers.authorization==authReturn){authMatch=true;}
     returnObj.records=[];
-    if((returnObj.urlMatch==true)&&(returnObj.authMatch==true)&&(returnObj.timeMatch==true)){
+    if((returnObj.authMatch==true)&&(returnObj.timeMatch==true)){
       const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       returnObj.records=sites;
     }
