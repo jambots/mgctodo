@@ -1,9 +1,6 @@
 const util = require('./utilController');
 const debug = require('debug')('app:apiSyndicateController');
 
-
-
-
 exports.syndicateSite = async function(req, res) {
   try {
     //const siteId=req.body.siteId;
