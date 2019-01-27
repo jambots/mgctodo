@@ -51,6 +51,8 @@ app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
 
 app.post('/api/list/', apiRouter);
+app.post('/api/banned/', apiRouter);
+app.post('/api/approved/', apiRouter);
 app.post('/api/unsyndicate/:id', apiRouter);
 app.post('/api/syndicate/', apiRouter);
 
