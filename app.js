@@ -50,9 +50,6 @@ app.get('/task/complete/:id', todoRouter);
 app.get('/task/add/', todoRouter);
 app.post('/task/add/', todoRouter);
 
-//app.get('/task/api/', todoRouter);
-app.post('/api/apiadd/', apiRouter);//saveSelf
-
 app.post('/api/list/', apiRouter);
 app.post('/api/unsyndicate/:id', apiRouter);
 app.post('/api/syndicate/', apiRouter);
