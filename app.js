@@ -7,7 +7,7 @@ var debug = require('debug')('app');
 var querystring = require('querystring');
 var md5 = require('md5');
 
-const todoRouter = require('./routes/todoRoutes');
+const adminRouter = require('./routes/adminRoutes');
 const apiRouter = require('./routes/apiRoutes');
 
 var app = express();
@@ -37,18 +37,18 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', todoRouter);
-app.post('/task/approving/:id', todoRouter);
-app.post('/task/banning/:id', todoRouter);
-app.post('/task/syndication/:id', todoRouter);
-app.post('/task/complete/:id', todoRouter);
-app.get('/task/edit/:id', todoRouter);
-app.post('/task/edit/:id', todoRouter);
-app.get('/task/delete/:id', todoRouter);
-app.post('/task/delete/:id', todoRouter);
-app.get('/task/complete/:id', todoRouter);
-app.get('/task/add/', todoRouter);
-app.post('/task/add/', todoRouter);
+app.get('/', adminRouter);
+app.post('/task/approving/:id', adminRouter);
+app.post('/task/banning/:id', adminRouter);
+app.post('/task/syndication/:id', adminRouter);
+app.post('/task/complete/:id', adminRouter);
+app.get('/task/edit/:id', adminRouter);
+app.post('/task/edit/:id', adminRouter);
+app.get('/task/delete/:id', adminRouter);
+app.post('/task/delete/:id', adminRouter);
+app.get('/task/complete/:id', adminRouter);
+app.get('/task/add/', adminRouter);
+app.post('/task/add/', adminRouter);
 
 app.post('/api/list/', apiRouter);
 app.post('/api/banned/', apiRouter);
