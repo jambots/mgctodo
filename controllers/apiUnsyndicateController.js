@@ -14,11 +14,11 @@ exports.unsyndicateSite = async function(req, res) {
       //const sites = await dbParams.collection.find({isUnsyndicated:'false', isBanned:'false'}).sort({ dueDate: 1 }).toArray();
       //returnObj.records=sites;
 
-      //let status = (task.isComplete == 'false') ? 'true' : 'false';
+      //let status = (site.isComplete == 'false') ? 'true' : 'false';
       let status = 'true';
       await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
-      const task = await dbParams.collection.findOne({ _id: new ObjectId(id) });
-      returnObj.records.push(task);
+      const site = await dbParams.collection.findOne({ _id: new ObjectId(id) });
+      returnObj.records.push(site);
     }
     res.json(returnObj);
     dbParams.client.close();

@@ -8,14 +8,14 @@
     <div class="container">
         <% include ./partials/nav %>
         <div class="card" style="width: 50%">
-        <form method="post" action="/task/add/" style="padding: 20px">
+        <form method="post" action="/site/add/" style="padding: 20px">
             <div class="form-group">
                 <label for="summary" class="text-primary">Summary</label>
                 <input class="form-control" id="summary" name="summary"></textarea>
 
                 <label for="detail" class="text-primary">Details</label>
                 <textarea class="form-control" id="detail" rows="3" name="detail"></textarea>
-            
+
                 <label for="priority" class="text-primary">Priority</label>
                 <select class="form-control" id="priority" name="priority">
                     <option>Low</option>
@@ -27,7 +27,7 @@
                 <input type="date" class="form-control" id="duedate" name="dueDate">
                 <input id="isComplete" name="isComplete" type="hidden" value="false">
             </div>
-                <input type="submit" class="btn btn-primary" value="Add Task">
+                <input type="submit" class="btn btn-primary" value="Add Site">
         </form>
         </div>
     </div> <!-- container -->

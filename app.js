@@ -38,17 +38,17 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', adminRouter);
-app.post('/task/approving/:id', adminRouter);
-app.post('/task/banning/:id', adminRouter);
-app.post('/task/syndication/:id', adminRouter);
-app.post('/task/complete/:id', adminRouter);
-app.get('/task/edit/:id', adminRouter);
-app.post('/task/edit/:id', adminRouter);
-app.get('/task/delete/:id', adminRouter);
-app.post('/task/delete/:id', adminRouter);
-app.get('/task/complete/:id', adminRouter);
-app.get('/task/add/', adminRouter);
-app.post('/task/add/', adminRouter);
+app.post('/site/approving/:id', adminRouter);
+app.post('/site/banning/:id', adminRouter);
+app.post('/site/syndication/:id', adminRouter);
+app.post('/site/complete/:id', adminRouter);
+app.get('/site/edit/:id', adminRouter);
+app.post('/site/edit/:id', adminRouter);
+app.get('/site/delete/:id', adminRouter);
+app.post('/site/delete/:id', adminRouter);
+app.get('/site/complete/:id', adminRouter);
+app.get('/site/add/', adminRouter);
+app.post('/site/add/', adminRouter);
 
 app.post('/api/list/', apiRouter);
 app.post('/api/banned/', apiRouter);

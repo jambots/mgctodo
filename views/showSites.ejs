@@ -9,18 +9,18 @@
   <body>
     <div class="container">
       <% include ./partials/nav %>
-      <%  let task = {}; %>
+      <%  let site = {}; %>
 
-         <% if (tasks.length == 0) { %>
-         
-         <h4> No tasks to display. Add one above.</h4>
+         <% if (sites.length == 0) { %>
+
+         <h4> No sites to display. Add one above.</h4>
 
          <%} else {%>
 
-          <% for(let i = 0; i < tasks.length; i++) { 
-              task = tasks[i] %>
-              <% include ./partials/showtask %>
-          <% } %> 
+          <% for(let i = 0; i < sites.length; i++) {
+              site = sites[i] %>
+              <% include ./partials/showsite %>
+          <% } %>
         <% } %>
       <p class="font-weight-light font-italic">Served by host: <%= hostname %></p>
     </div> <!-- container -->

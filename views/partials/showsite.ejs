@@ -1,21 +1,21 @@
 <div class="card border-primary" style="width: 100%">
     <div class="card-header">
-      <h5 class ="card-title"><%=task.blogName%> &nbsp;
-        <a href="<%=task.siteUrl%>" target="_blank"><%=task.siteUrl%></a>
+      <h5 class ="card-title"><%=site.blogName%> &nbsp;
+        <a href="<%=site.siteUrl%>" target="_blank"><%=site.siteUrl%></a>
       </h5>
       <!--
 
       <div class="row">
         <div class="col-sm">
             *** Due By:
-            <%if (task.dueDate != '') { %>
-                <%=task.dueDate%>
+            <%if (site.dueDate != '') { %>
+                <%=site.dueDate%>
             <% } else  { %>
                 Not specified
             <% } %>
         </div>
         <div class="col-sm">
-            <% switch(task.priority) {
+            <% switch(site.priority) {
                 case 'Normal': %>
                 <span class="badge float-right badge-warning">Priority: Normal</span>
                 <% break; %>
@@ -38,7 +38,7 @@
         <div class = "row">
 <!--
             <div class = "col-sm">
-              <% if (task.isComplete == 'false') {%>
+              <% if (site.isComplete == 'false') {%>
                   <h4><span class="badge badge-secondary">Incomplete</span></h4>
               <%} else { %>
                   <h4><span class="badge badge-secondary">Complete</span></h4>
@@ -47,14 +47,14 @@
   -->
           <div class = "col-sm">
             <h4><span class="badge">
-                <% if (task.isUnsyndicated == 'false') {%>
+                <% if (site.isUnsyndicated == 'false') {%>
                   Syndicated
               <%} else { %>
                   Unsyndicated
               <%}%>
-                  <form method="post" action="/task/syndication/<%=task._id%>">
+                  <form method="post" action="/site/syndication/<%=site._id%>">
                       <button type="submit" class="btn btn-link">
-                          <% if (task.isUnsyndicated == 'false') {%>
+                          <% if (site.isUnsyndicated == 'false') {%>
                               <i class="fas fa-eye"></i>
                           <%} else { %>
                               <i class="fas fa-eye-slash"></i>
@@ -66,14 +66,14 @@
           </div>
           <div class = "col-sm">
             <h4><span class="badge">
-                <% if (task.isBanned == 'false') {%>
+                <% if (site.isBanned == 'false') {%>
                   Upstanding
               <%} else { %>
                   Banned
               <%}%>
-                  <form method="post" action="/task/banning/<%=task._id%>">
+                  <form method="post" action="/site/banning/<%=site._id%>">
                       <button type="submit" class="btn btn-link">
-                          <% if (task.isBanned == 'false') {%>
+                          <% if (site.isBanned == 'false') {%>
                               <i class="fas fa-user"></i>
                           <%} else { %>
                               <i class="fas fa-user-slash"></i>
@@ -85,14 +85,14 @@
           </div>
           <div class = "col-sm">
             <h4><span class="badge">
-                <% if (task.isApproved == 'false') {%>
+                <% if (site.isApproved == 'false') {%>
                   Pending
               <%} else { %>
                   Approved
               <%}%>
-                  <form method="post" action="/task/approving/<%=task._id%>">
+                  <form method="post" action="/site/approving/<%=site._id%>">
                       <button type="submit" class="btn btn-link">
-                          <% if (task.isApproved == 'false') {%>
+                          <% if (site.isApproved == 'false') {%>
                               <i class="fas fa-user"></i>
                           <%} else { %>
                               <i class="fas fa-user-check"></i>
@@ -105,17 +105,17 @@
             <div class = "col-sm">
                 <ul class="nav justify-content-end nav-pills card-header-pills">
                         <li class="nav-item">
-                            <a class="nav-link" href="/task/edit/<%=task._id%>"> <i class="fas fa-edit"></i></a>
+                            <a class="nav-link" href="/site/edit/<%=site._id%>"> <i class="fas fa-edit"></i></a>
                         </li>
                     <li cl
                     <li class="nav-item">
-                        <a class="nav-link" href="/task/delete/<%=task._id%>"> <i class="fas fa-trash-alt"></i></a>
+                        <a class="nav-link" href="/site/delete/<%=site._id%>"> <i class="fas fa-trash-alt"></i></a>
                     </li>
 <!--
                       <li class="nav-item">
-                        <form method="post" action="/task/complete/<%=task._id%>">
+                        <form method="post" action="/site/complete/<%=site._id%>">
                             <button type="submit" class="btn btn-link">
-                                <% if (task.isComplete == 'false') {%>
+                                <% if (site.isComplete == 'false') {%>
                                     <i class="fas fa-check"></i>
                                 <%} else { %>
                                     <i class="fas fa-redo-alt"></i>

@@ -8,14 +8,14 @@ exports.syndicateSite = async function(req, res) {
     var returnObj={headers:req.headers, body:req.body, records:[]};
     returnObj.auth=util.auth(req.body.url, req.body.time, req.body.payload, req.headers.authorization);
     if(returnObj.auth.auth==true){
-      const task = req.body;
+      const site = req.body;
       const dbParams = await util.setupDB();
-      let tasks = await dbParams.collection.find({ siteUrl: task.siteUrl }).sort({ dueDate: 1 }).toArray();
-      if(tasks.length>0){
-        await dbParams.collection.findOneAndUpdate({ siteUrl: task.siteUrl }, { $set: { isUnsyndicated: 'false' } });
+      let sites = await dbParams.collection.find({ siteUrl: site.siteUrl }).sort({ dueDate: 1 }).toArray();
+      if(sites.length>0){
+        await dbParams.collection.findOneAndUpdate({ siteUrl: site.siteUrl }, { $set: { isUnsyndicated: 'false' } });
       }
       else{
-        await dbParams.collection.insertOne(task);
+        await dbParams.collection.insertOne(site);
       }
       dbParams.client.close();
 
