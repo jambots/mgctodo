@@ -2,15 +2,15 @@ const { MongoClient, ObjectId } = require('mongodb');
 const util = require('./utilController');
 const debug = require('debug')('app:addController');
 
-exports.addTask = (req, res) => {
-  res.render('addTask', { title: 'Adding a Task' });
+exports.addSite = (req, res) => {
+  res.render('addSite', { title: 'Adding a Site' });
 };
 
-exports.saveTask = async (req, res) => {
+exports.saveSite = async (req, res) => {
   try {
-    const task = req.body;
+    const site = req.body;
     const dbParams = await util.setupDB();
-    await dbParams.collection.insertOne(task);
+    await dbParams.collection.insertOne(site);
     dbParams.client.close();
     res.redirect('/');
   }
