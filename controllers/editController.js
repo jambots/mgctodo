@@ -25,8 +25,8 @@ exports.commitEdit = async (req, res) => {
     await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: site });
     ////const site = await dbParams.collection.findOne({ _id: new ObjectId(id) });
     dbParams.client.close();
-    res.json(site);
-    //res.redirect('/');
+    //res.json(site);
+    res.redirect('/');
   }
 
   catch (err) {
