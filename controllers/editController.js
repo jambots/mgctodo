@@ -19,11 +19,11 @@ exports.editSite = async (req, res) => {
 exports.commitEdit = async (req, res) => {
   try {
     const { id } = req.params;
-    const site = req.body;
-    const dbParams = await util.setupDB();
-    await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, site);
-    dbParams.client.close();
-    res.json(site);
+    //const site = req.body;
+    ///const dbParams = await util.setupDB();
+    //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, site);
+    //dbParams.client.close();
+    res.json([id]);
     //res.redirect('/');
   }
 
