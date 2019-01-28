@@ -22,7 +22,7 @@ exports.commitEdit = async (req, res) => {
     const site = req.body;
     const dbParams = await util.setupDB();
     //await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, site);
-    ////await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: { isUnsyndicated: status } });
+    await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, { $set: site });
     ////const site = await dbParams.collection.findOne({ _id: new ObjectId(id) });
     dbParams.client.close();
     res.json(site);
