@@ -23,7 +23,8 @@ exports.commitEdit = async (req, res) => {
     const dbParams = await util.setupDB();
     await dbParams.collection.findOneAndUpdate({ _id: new ObjectId(id) }, site);
     dbParams.client.close();
-    res.redirect('/');
+    res.json(site);
+    //res.redirect('/');
   }
 
   catch (err) {

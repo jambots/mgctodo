@@ -20,6 +20,7 @@ router.post('/site/edit/:id', editController.commitEdit);
 router.get('/site/add/', addController.addSite);
 router.post('/site/add/', addController.saveSite);
 router.get('/', showController.showSites);
+router.post('/', showController.showSites);
 //router.get('/api/books', booksController.showBooks);
 
 module.exports = router;

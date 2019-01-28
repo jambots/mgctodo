@@ -9,7 +9,7 @@ exports.showSites = async function (req, res) {
     const dbParams = await util.setupDB();
     const sites = await dbParams.collection.find({}).sort({ dueDate: 1 }).toArray();
     const hostname = os.hostname();
-    res.render('showSites', { sites, title: 'ToDo List', hostname });
+    res.render('showSites', { sites, title: 'Admin Sites', hostname });
     dbParams.client.close();
   }
 

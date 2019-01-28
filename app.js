@@ -38,6 +38,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', adminRouter);
+app.post('/', adminRouter);
 app.post('/site/approving/:id', adminRouter);
 app.post('/site/banning/:id', adminRouter);
 app.post('/site/syndication/:id', adminRouter);
