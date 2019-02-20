@@ -2,7 +2,7 @@
     <div class="card-header">
       <h5 class ="card-title"><%=site.blogName%> &nbsp;
         <a href="<%=site.siteUrl%>" target="_blank"><%=site.siteUrl%></a>
-        <div id="<%=site.siteUrl%>"></div>
+        <div id="<%=site.siteUrl%>"><a href="javascript:previewUrl('<%=site.siteUrl%>');">PREVIEW</a></div>
       </h5>
       <!--
 
@@ -131,6 +131,33 @@
     </div>
 </div>
 <script>
-  document.getElementById("<%=site.siteUrl%>").innerHTML="found";
+  function previewUrl(url){
+    var wpUrl=url+"/wp-json/hubspoke/allrecords";
+    jQuery.post(wpUrl, {afterSec:0}, function(result){
+      result=convertRecords(result);
+      var records=result.records;
+      console.log(result);
+      var htmlStr="";
+      records.sort((a,b) => (a.time > b.time) ? -1 : ((b.time > a.time) ? 1 : 0));
+
+      for (var r=0; r<records.length; r++){
+        var res=records[r];
+        htmlStr+= '<div style="background-image:url('+res.thumbnail+');  height:100px; width:100px; background-size:cover; float:left; background-repeat:no-repeat; float:left;"></div>';
+      }
+      document.getElementById(url).innerHTML=htmlStr;
+    });
+
+  }
+  function convertRecords(results){
+    var records=[];
+    var keys=Object.keys(results);
+    for (var r=0; r<keys.length; r++){
+      if(isNaN(keys[r])==false){
+        records.push(results[keys[r]]);
+      }
+    }
+    results.records=records;
+    return results;
+  }
 </script>
 <p> <!-- card -->

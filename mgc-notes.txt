@@ -3,8 +3,8 @@ lightsail mean stack
 cd to dev/hub/
 ssh -i default.pem bitnami@54.202.200.128
 ssh -i default.pem bitnami@52.27.185.113
-ssh -i newdefault.pem bitnami@34.218.242.33
-
+ssh -i default.pem bitnami@34.218.242.33
+https://lightsail.aws.amazon.com/ls/webapp/us-west-2/static-ips/hub-spoke-Oregon-1
 [use public ip]
 cd ~
 cat bitnami_application_password
