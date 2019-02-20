@@ -1,8 +1,9 @@
   <div class="card border-primary" style="width: 100%">
     <div class="card-header">
       <h5 class ="card-title"><%=site.blogName%> &nbsp;
-        <a href="<%=site.siteUrl%>" target="_blank"><%=site.siteUrl%></a>
-        <div id="<%=site.siteUrl%>"><a href="javascript:previewUrl('<%=site.siteUrl%>');">PREVIEW</a></div>
+        <a href="<%=site.siteUrl%>" target="_blank"><%=site.siteUrl%></a> <a href="javascript:previewUrl('<%=site.siteUrl%>');">PREVIEW</a>
+        <div id="<%=site.siteUrl%>"></div>
+
       </h5>
       <!--
 
@@ -133,7 +134,7 @@
 <script>
   function previewUrl(url){
     var wpUrl=url+"/wp-json/hubspoke/allrecords";
-    jQuery.post(wpUrl, {afterSec:0}, function(result){
+    jQuery.post(wpUrl, {afterSec:0, limit:5}, function(result){
       result=convertRecords(result);
       var records=result.records;
       console.log(result);
