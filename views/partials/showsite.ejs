@@ -136,13 +136,13 @@
     //var wpUrl=url+"/wp-json/hubspoke/allrecords";
     var wpUrl=url+"/wp-json/hubspoke/localrecords";
     //jQuery.post(wpUrl, {afterSec:0, limit:5}, function(result){
-    jQuery.post(wpUrl, {timeAfter:0, limit:5}, function(result){
+    jQuery.post(wpUrl, {timeAfter:0, limit:50}, function(result){
         //result=convertRecords(result);
       //var records=result.records;
       var records=result;
       console.log(result);
       var htmlStr="";
-      records.sort((a,b) => (a.time > b.time) ? -1 : ((b.time > a.time) ? 1 : 0));
+      //records.sort((a,b) => (a.time > b.time) ? -1 : ((b.time > a.time) ? 1 : 0));
 
       for (var r=0; r<records.length; r++){
         var res=records[r];
